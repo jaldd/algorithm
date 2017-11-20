@@ -18,7 +18,9 @@ public class SelectSort extends MyArray{
 					min=j;
 				}
 			}
-			swap(min,i);
+			if(min!=i) {
+				swap(min,i);	
+			}
 		}
 	}
 }

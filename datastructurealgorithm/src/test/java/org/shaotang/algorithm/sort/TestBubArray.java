@@ -33,6 +33,12 @@ public class TestBubArray {
 		selectSort.selectSort();
 		selectSort.display();
 	}
+	@Test
+	public void insertSort() {
+		InsertSort insertSort=new InsertSort(arr);
+		insertSort.insertSort();
+		insertSort.display();
+	}
 
 	
 	
