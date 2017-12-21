@@ -6,6 +6,7 @@ public class MoneyConverter {
 
 	private static char[] units=new char[] {'圆','拾','佰','仟','万','拾','佰','仟','亿'};
 	private static char[] data=new char[] {'零','壹','贰','叁','肆','伍','陆','柒','捌','玖'};
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		Scanner s=new Scanner(System.in);
 		int money=s.nextInt();
