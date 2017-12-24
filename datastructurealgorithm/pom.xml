@@ -35,45 +35,44 @@
 					<artifactId>lifecycle-mapping</artifactId>
 					<version>1.0.0</version>
 					<configuration>
-                    <lifecycleMappingMetadata>
-                        <pluginExecutions>
-                            <pluginExecution>
-                                <pluginExecutionFilter>
-                                    <groupId>org.apache.maven.plugins</groupId>
-                                    <artifactId>maven-resources-plugin</artifactId>
-                                    <versionRange>[2.0,)</versionRange>
-                                    <goals>
-                                        <goal>resources</goal>
-                                        <goal>testResources</goal>
-                                    </goals>
-                                </pluginExecutionFilter>
-                                <action>
-                                    <ignore />
-                                </action>
-                            </pluginExecution>
-                            <pluginExecution>
-                                <pluginExecutionFilter>
-                                    <groupId>org.apache.maven.plugins</groupId>
-                                    <artifactId>maven-source-plugin</artifactId>
-                                    <versionRange>[3.0,)</versionRange>
-                                    <goals>
-                                        <goal>source</goal>
-                                        <goal>testSource</goal>
-                                    </goals>
-                                </pluginExecutionFilter>
-                                <action>
-                                    <ignore />
-                                </action>
-                            </pluginExecution>
-                        </pluginExecutions>
-                    </lifecycleMappingMetadata>
-                </configuration>
+						 <lifecycleMappingMetadata>
+	                        <pluginExecutions>
+	                            <pluginExecution>
+	                                <pluginExecutionFilter>
+	                                    <groupId>org.apache.maven.plugins</groupId>
+	                                    <artifactId>maven-resources-plugin</artifactId>
+	                                    <versionRange>[2.0,)</versionRange>
+	                                    <goals>
+	                                        <goal>resources</goal>
+	                                        <goal>testResources</goal>
+	                                    </goals>
+	                                </pluginExecutionFilter>
+	                                <action>
+	                                    <ignore />
+	                                </action>
+	                            </pluginExecution>
+	                            <pluginExecution>
+	                                <pluginExecutionFilter>
+	                                    <groupId>org.apache.maven.plugins</groupId>
+	                                    <artifactId>maven-source-plugin</artifactId>
+	                                    <versionRange>[3.0,)</versionRange>
+	                                    <goals>
+	                                        <goal>source</goal>
+	                                        <goal>testSource</goal>
+	                                    </goals>
+	                                </pluginExecutionFilter>
+	                                <action>
+	                                    <ignore />
+	                                </action>
+	                            </pluginExecution>
+	                        </pluginExecutions>
+	                    </lifecycleMappingMetadata>
+					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
 
 		<plugins>
-		
 			<!-- 资源文件拷贝插件 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -98,10 +97,6 @@
 					</archive>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-			</plugin>
 
 			<!-- java编译插件 解决base64等类报错 -->
 			<plugin>
@@ -117,9 +112,24 @@
 					</compilerArguments>
 				</configuration>
 			</plugin>
-
+			<plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-eclipse-plugin</artifactId>
+	            <configuration>
+	                <wtpmanifest>true</wtpmanifest>
+	                <wtpapplicationxml>true</wtpapplicationxml>
+	                <wtpversion>2.0</wtpversion>
+	            </configuration>
+	        </plugin>
 		</plugins>
 		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.java</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
 			<resource>
 				<directory>src/main/resources</directory>
 				<excludes>
@@ -129,10 +139,9 @@
 				<filtering>false</filtering>
 			</resource>
 			<resource>
-				<directory>src/main/java</directory>
+				<directory>src/test/java</directory>
 				<includes>
-					<include>**/*.properties</include>
-					<include>**/*.xml</include>
+					<include>**/*.java</include>
 				</includes>
 				<filtering>false</filtering>
 			</resource>
@@ -142,14 +151,6 @@
 					<exclude>**/*.properties</exclude>
 					<exclude>**/*.xml</exclude>
 				</excludes>
-				<filtering>false</filtering>
-			</resource>
-			<resource>
-				<directory>src/test/java</directory>
-				<includes>
-					<include>**/*.properties</include>
-					<include>**/*.xml</include>
-				</includes>
 				<filtering>false</filtering>
 			</resource>
 		</resources>

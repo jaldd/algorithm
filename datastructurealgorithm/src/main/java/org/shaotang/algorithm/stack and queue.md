@@ -1,4 +1,10 @@
 # 栈
+
+---
+++https://github.com/jaldd/algorithm/tree/develop/datastructurealgorithm/src/main/java/org/shaotang/algorithm/stack++
+
+---
+
 栈只允许访问最后插入的数据项，移除后才能访问第二个插入的数据项。
 
 ---
@@ -55,6 +61,12 @@ public String doReverse() {
 }
 ```
 # 队列
+
+---
+++https://github.com/jaldd/algorithm/tree/develop/datastructurealgorithm/src/main/java/org/shaotang/algorithm/queue++
+
+---
+
 先进先出
 
 ## 循环队列
